@@ -62,8 +62,8 @@ router.put('/:id', (req, res) => {
       id: req.params.id,
     },
   })
-    .then((dbCategory) => {
-      if (dbCategory) {
+    .then((dbTag) => {
+      if (dbTag) {
         res.status(200).json({ message: 'TAG UPDATED!' });
         return;
       }
@@ -75,7 +75,22 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
+  Tag.destroy ({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then (dbTag => {
+    if (!dbTag){
+      res.status(404).json({ message: 'THERE ARE NO TAGS FOUND WITH THAT ID!'});
+      return;
+    }
+    res.json(dbTag);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 module.exports = router;
