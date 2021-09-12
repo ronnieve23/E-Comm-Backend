@@ -44,7 +44,7 @@ The app utilizes Node.js, Express.js,MySQL, the MySQL2 package, the Dotenv packa
 
 9. Run the following MySQL commands in order:
 
-        a. source db/db.sql       
+        a. source db/schema.sql       
         b. quit
         
 10. In the terminal, type "npm run seed".
