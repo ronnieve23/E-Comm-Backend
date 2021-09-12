@@ -32,16 +32,17 @@ router.get('/:id', (req, res) => {
         as: 'product_tags'
       }
     ]
-  }).then(dbTag => {
-    if (!dbTag) {
-      res.status(404).json({ message: 'THERE ARE NO TAGS FOUND WITH THAT ID' });
-      return;
-    }
-    res.json(dbTag);
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+  })
+    .then(dbTag => {
+      if (!dbTag) {
+        res.status(404).json({ message: 'THERE ARE NO TAGS FOUND WITH THAT ID' });
+        return;
+      }
+      res.json(dbTag);
+    }).catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.post('/', (req, res) => {
@@ -56,7 +57,21 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  // update a tag's name by its `id` value
+  Tag.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbCategory) => {
+      if (dbCategory) {
+        res.status(200).json({ message: 'TAG UPDATED!' });
+        return;
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
 });
 
 router.delete('/:id', (req, res) => {
