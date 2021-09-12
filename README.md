@@ -57,7 +57,7 @@ The app utilizes Node.js, Express.js,MySQL, the MySQL2 package, the Dotenv packa
  ## Demonstration
  For the purposes of this demo, the tables have been pre-filled with some values already.
  
- [CLICK ME TO SEE A VIDEO OF HOW THE APP IS USED](https://www.youtube.com/watch?v=LEaKqEkAj2Q)
+ [CLICK ME TO SEE A VIDEO OF HOW THE APP IS USED](https://drive.google.com/file/d/1ZN7xbw9_nAZ_XJAcS0H7qNFNn_i4igWW/view?usp=sharing)
 
 
  ## Contributing
